@@ -1,10 +1,10 @@
-title:            "@muanchiou"
-url:              http://muan.co
+title:            "@ssdr"
+url:              http://ssdr.github.io
 permalink:        pretty
 highlighter:      pygments
 markdown:         kramdown
 google_analytics: UA-21332781-7
-timezone:         Europe/London
+timezone:         Asia/Shanghai
 gems:
   - jemoji
   - jekyll-mentions
