@@ -5,7 +5,7 @@ description: "读书摘录"
 category: 人文阅读
 tags: linux
 ---
-{% include JB/setup %}
+
 # Just for Fun
 > 我们可以在第一章里对人们解释生命的意义何在。这样可以吸引住他们。一旦他们被吸引住，并且付钱买了书，剩下的章节里我们就可以胡扯了。
 > 
