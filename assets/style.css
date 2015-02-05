@@ -21,8 +21,9 @@ a {
     margin-right: 30px;
     white-space: nowrap;
     font-family: helvetica, sans-serif; }
+    opacity: .2;
     .site-header a.active {
-      opacity: .2;
+      opacity: 0;
       border-bottom: 1px solid #333; }
     .site-header a:last-child {
       margin-right: 0; }

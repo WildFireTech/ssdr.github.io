@@ -3,9 +3,9 @@ layout: about
 ---
 
 **牧童的博客**<br />
-Designer at [GitHub](https://github.com/about), co-founder of [Zeczec](http://zeczec.com).
 
-Currently traveling from Taipei.
+
+互联网上的小菜鸟，现在北京。
 
 ---
 
