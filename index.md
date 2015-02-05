@@ -12,11 +12,11 @@ layout: about
 <div class="links">
 <a href="https://github.com/ssdr" target="_blank">GitHub</a>
 
-<a href="http://weibo.com/ssdrliu" target="_blank">Weibo</a>
+<a href="http://weibo.com/ssdrliu" target="_blank">微博</a>
 
-<a href="https://twitter.com/ssdr" target="_blank">Twitter</a>
+<a href="https://twitter.com/ssdr" target="_blank">推特</a>
 
-<a href="/feed.xml" target="_blank">Blog feed</a>
+<a href="/feed.xml" target="_blank">订阅</a>
 </div>
 
 ---
