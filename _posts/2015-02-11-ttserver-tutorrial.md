@@ -249,4 +249,5 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 ##http客户端
 
 *详情请看：[Fundamental Specifications of Tokyo Tyrant](http://fallabs.com/tokyotyrant/spex.html)*
+
 *另外，听说[Kyoto Tycoon: a handy cache/storage server](http://fallabs.com/kyototycoon/)性能更好*
