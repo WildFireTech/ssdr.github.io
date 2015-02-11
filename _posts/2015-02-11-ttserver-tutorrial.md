@@ -13,6 +13,7 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 由于服务端使用TC的抽象接口，客户端可以通过通用接口使用六类接口：内存hash数据库，内存tree数据库，hash，B+ tree数据库，定长数据库，表数据库。
 
 #服务端程序
+
 ##ttserver
 
 > ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-kl] [-log path] [-ld|-le] [-ulog path] [-ulim num] [-uas] [-sid num] [-mhost name] [-mport num] [-rts path] [-rcc] [-skel name] [-mul num] [-ext path] [-extpc name period] [-mask expr] [-unmask expr] [dbname]
