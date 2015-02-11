@@ -1,6 +1,6 @@
 ---
 layout: post
-title: nginx文档
+title: Nginx文档
 ---
 
 [TOC]
