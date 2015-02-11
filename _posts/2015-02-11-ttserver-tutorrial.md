@@ -14,6 +14,7 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 
 #服务端程序
 ##ttserver
+
 > ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-kl] [-log path] [-ld|-le] [-ulog path] [-ulim num] [-uas] [-sid num] [-mhost name] [-mport num] [-rts path] [-rcc] [-skel name] [-mul num] [-ext path] [-extpc name period] [-mask expr] [-unmask expr] [dbname]
 
 发送SIGINT和SIGTERM信号（ctrl-c），正常停止程序；   
@@ -28,6 +29,7 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 导入导出更新日志的工具
 
 #客户端程序
+
 ##tcrtest
 功能和性能测试工具
 
@@ -38,6 +40,7 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 远程数据库API及其应用的测试和调试工具
 
 #Tutorial
+
 ##基本用法
 	ttserver
 
@@ -246,6 +249,7 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
  4. 为了处理服务峰值访问时的高速查询，可以设置内存hash/tree数据库和文件hash/tree数据库联合复制。master处理内存数据库，用于高峰期间的查询，因为其不能保证数据的持久性，通过将数据存于文件数据库的slave复制弥补其不足。
 
 ##memcached客户端
+
 ##http客户端
 
 *详情请看：[Fundamental Specifications of Tokyo Tyrant](http://fallabs.com/tokyotyrant/spex.html)*
