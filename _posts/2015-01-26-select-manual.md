@@ -7,6 +7,7 @@ tags: [manual, select]
 ---
 
 #select,  pselect,  FD_CLR,  FD_ISSET, FD_SET, FD_ZERO - 同步IO多路复用
+
 ##用法
 
 	/* According to POSIX.1-2001 */
