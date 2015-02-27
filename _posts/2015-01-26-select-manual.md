@@ -5,8 +5,10 @@ description: ""
 category: 用户手册
 tags: [manual, select]
 ---
+
 #select,  pselect,  FD_CLR,  FD_ISSET, FD_SET, FD_ZERO - 同步IO多路复用
 ##用法
+
 	/* According to POSIX.1-2001 */
     #include <sys/select.h>
     /* According to earlier standards */
@@ -25,7 +27,9 @@ tags: [manual, select]
     int pselect(int nfds, fd_set *readfds, fd_set *writefds,
                 fd_set *exceptfds, const struct timespec *timeout,
                 const sigset_t *sigmask);
+
 ##描述
+
 select()和pselect()允许程序监听多个文件描述符，等待直到一个或多个文件描述符下的IO操作就绪。如果一个文件描述符可以非阻塞的进行IO操作，我们认为该文件描述符准备就绪。
 
 select()和pselect()的区别：
@@ -53,6 +57,7 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
 以下调用除了超时精度的不同，其他完全相同：
 
 	ready = pselect(nfds, &readfds, &writefds, &exceptfds, timeout, &sigmask);
+
 和
 
 	sigset_t origmask;
@@ -102,6 +107,7 @@ POSIX.1-2001情况，timeval结构在`<sys/select.h>`定义，域的类型在`<s
         time_t         tv_sec;     /* seconds */
         suseconds_t    tv_usec;    /* microseconds */
     };
+
 所以，包含什么头文件取决于你想使用哪种结构。
 
 **多线程应用**
@@ -113,7 +119,9 @@ POSIX.1-2001情况，timeval结构在`<sys/select.h>`定义，域的类型在`<s
 pselect()由glibc实现，底层的系统调用是pselect6()。该系统调用与glibc的包裹函数（pselect）有些不同。
 
 Linux的pselect6()系统调用修改timeout参数，而glibc的包裹函数通过`向系统调用传递一个timeout的局部变量`隐藏了这一行为。因此glibc的pselect()不会修改timeout参数，这是POSIX.1-2001的要求。
+
 ##注意事项
+
 1. 尽量使用不带timeout的select。如果没有数据可用，程序将无事可做。依赖超时的代码通常来说不可移植或难于调试。
 2. 为了效率考虑，nfds应该精确计算。
 3. 如果select调用后你不打算检查结果，请不要将该文件描述符添加到监听集合中。
@@ -133,6 +141,7 @@ Linux的pselect6()系统调用修改timeout参数，而glibc的包裹函数通�
     tv.tv_sec = 0;
     tv.tv_usec = 200000;  /* 0.2 seconds */
     select(0, NULL, NULL, NULL, &tv);
+
 ##例子
 	#include <stdio.h>
     #include <stdlib.h>
