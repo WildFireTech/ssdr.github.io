@@ -12,24 +12,24 @@ tags: [manual, select]
 
 {% highlight c %}
 
-	/* According to POSIX.1-2001 */
-    #include <sys/select.h>
-    /* According to earlier standards */
-    #include <sys/time.h>
-    #include <sys/types.h>
-    #include <unistd.h>
+/* According to POSIX.1-2001 */
+#include <sys/select.h>
+/* According to earlier standards */
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-    int select(int nfds, fd_set *readfds, fd_set *writefds,
-               fd_set *exceptfds, struct timeval *timeout);
-    void FD_CLR(int fd, fd_set *set);
-    int  FD_ISSET(int fd, fd_set *set);
-    void FD_SET(int fd, fd_set *set);
-    void FD_ZERO(fd_set *set);
+int select(int nfds, fd_set *readfds, fd_set *writefds,
+		   fd_set *exceptfds, struct timeval *timeout);
+void FD_CLR(int fd, fd_set *set);
+int  FD_ISSET(int fd, fd_set *set);
+void FD_SET(int fd, fd_set *set);
+void FD_ZERO(fd_set *set);
 
-    #include <sys/select.h>
-    int pselect(int nfds, fd_set *readfds, fd_set *writefds,
-                fd_set *exceptfds, const struct timespec *timeout,
-                const sigset_t *sigmask);
+#include <sys/select.h>
+int pselect(int nfds, fd_set *readfds, fd_set *writefds,
+			fd_set *exceptfds, const struct timespec *timeout,
+			const sigset_t *sigmask);
 
 {% endhighlight %}
 
@@ -63,7 +63,7 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
 
 {% highlight c %}
 
-	ready = pselect(nfds, &readfds, &writefds, &exceptfds, timeout, &sigmask);
+ready = pselect(nfds, &readfds, &writefds, &exceptfds, timeout, &sigmask);
 
 {% endhighlight %}
 
@@ -71,10 +71,10 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
 
 {% highlight c %}
 
-	sigset_t origmask;
-    pthread_sigmask(SIG_SETMASK, &sigmask, &origmask);
-    ready = select(nfds, &readfds, &writefds, &exceptfds, timeout);
-    pthread_sigmask(SIG_SETMASK, &origmask, NULL);
+sigset_t origmask;
+pthread_sigmask(SIG_SETMASK, &sigmask, &origmask);
+ready = select(nfds, &readfds, &writefds, &exceptfds, timeout);
+pthread_sigmask(SIG_SETMASK, &origmask, NULL);
 
 {% endhighlight %}
 
@@ -82,15 +82,15 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
 
 {% highlight c %}
 
-	struct timeval {
-        long    tv_sec;         /* seconds */
-        long    tv_usec;        /* microseconds */
-    };
+struct timeval {
+	long    tv_sec;         /* seconds */
+	long    tv_usec;        /* microseconds */
+};
 
-	struct timespec {
-        long    tv_sec;         /* seconds */
-        long    tv_nsec;        /* nanoseconds */
-    };
+struct timespec {
+	long    tv_sec;         /* seconds */
+	long    tv_nsec;        /* nanoseconds */
+};
 
 {% endhighlight %}
 
@@ -122,10 +122,10 @@ POSIX.1-2001情况，timeval结构在`<sys/select.h>`定义，域的类型在`<s
 
 {% highlight c %}
 
-	struct timeval {
-        time_t         tv_sec;     /* seconds */
-        suseconds_t    tv_usec;    /* microseconds */
-    };
+struct timeval {
+	time_t         tv_sec;     /* seconds */
+	suseconds_t    tv_usec;    /* microseconds */
+};
 
 {% endhighlight %}
 
@@ -160,10 +160,10 @@ Linux的pselect6()系统调用修改timeout参数，而glibc的包裹函数通�
 
 {% highlight c %}
 
-	struct timeval tv;
-    tv.tv_sec = 0;
-    tv.tv_usec = 200000;  /* 0.2 seconds */
-    select(0, NULL, NULL, NULL, &tv);
+struct timeval tv;
+tv.tv_sec = 0;
+tv.tv_usec = 200000;  /* 0.2 seconds */
+select(0, NULL, NULL, NULL, &tv);
 
 {% endhighlight %}
 
