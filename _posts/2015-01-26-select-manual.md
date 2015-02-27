@@ -12,6 +12,7 @@ tags: [manual, select]
 
 {% highlight c %}   
 
+
 	/* According to POSIX.1-2001 */
     #include <sys/select.h>
     /* According to earlier standards */
