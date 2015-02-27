@@ -10,6 +10,7 @@ tags: [manual, select]
 
 ##用法
 
+{% highlight javascript %}
 	/* According to POSIX.1-2001 */
     #include <sys/select.h>
     /* According to earlier standards */
@@ -28,6 +29,7 @@ tags: [manual, select]
     int pselect(int nfds, fd_set *readfds, fd_set *writefds,
                 fd_set *exceptfds, const struct timespec *timeout,
                 const sigset_t *sigmask);
+{% endhighlight %}
 
 ##描述
 
