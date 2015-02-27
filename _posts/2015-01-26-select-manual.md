@@ -10,7 +10,7 @@ tags: [manual, select]
 
 ##用法
 
-{% highlight javascript %}
+{% highlight c %}   
 
 	/* According to POSIX.1-2001 */
     #include <sys/select.h>
