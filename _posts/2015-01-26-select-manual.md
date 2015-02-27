@@ -10,8 +10,7 @@ tags: [manual, select]
 
 ##用法
 
-{% highlight c %}   
-
+{% highlight c %}
 
 	/* According to POSIX.1-2001 */
     #include <sys/select.h>
@@ -62,16 +61,26 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
 
 以下调用除了超时精度的不同，其他完全相同：
 
+{% highlight c %}
+
 	ready = pselect(nfds, &readfds, &writefds, &exceptfds, timeout, &sigmask);
 
+{% endhighlight %}
+
 和
+
+{% highlight c %}
 
 	sigset_t origmask;
     pthread_sigmask(SIG_SETMASK, &sigmask, &origmask);
     ready = select(nfds, &readfds, &writefds, &exceptfds, timeout);
     pthread_sigmask(SIG_SETMASK, &origmask, NULL);
 
+{% endhighlight %}
+
 超时数据结构
+
+{% highlight c %}
 
 	struct timeval {
         long    tv_sec;         /* seconds */
@@ -82,6 +91,8 @@ sigmask是指向信号mask的指针，如果不为NULL，pselect()先用sigmask�
         long    tv_sec;         /* seconds */
         long    tv_nsec;        /* nanoseconds */
     };
+
+{% endhighlight %}
 
 为了实现一个高精度定时器，可以调用select()，并传参：三个监听集合为空，nfds为0，非空的超时时间。
 
@@ -109,10 +120,14 @@ fd_set是一段固定大小的缓冲区。执行带有负fd值或不小于FD_SET
 
 POSIX.1-2001情况，timeval结构在`<sys/select.h>`定义，域的类型在`<sys/types.h>`定义，如下：
 
+{% highlight c %}
+
 	struct timeval {
         time_t         tv_sec;     /* seconds */
         suseconds_t    tv_usec;    /* microseconds */
     };
+
+{% endhighlight %}
 
 所以，包含什么头文件取决于你想使用哪种结构。
 
@@ -143,12 +158,18 @@ Linux的pselect6()系统调用修改timeout参数，而glibc的包裹函数通�
 ##usleep
 以下代码可以实现usleep功能：
 
+{% highlight c %}
+
 	struct timeval tv;
     tv.tv_sec = 0;
     tv.tv_usec = 200000;  /* 0.2 seconds */
     select(0, NULL, NULL, NULL, &tv);
 
+{% endhighlight %}
+
 ##例子
+{% highlight c %}
+
 	#include <stdio.h>
     #include <stdlib.h>
     #include <sys/time.h>
@@ -183,3 +204,5 @@ Linux的pselect6()系统调用修改timeout参数，而glibc的包裹函数通�
 
         exit(EXIT_SUCCESS);
     }
+
+{% endhighlight %}
