@@ -18,7 +18,7 @@ tags: [signal handler, reentrant, linux]
 5. 当信号处理函数运行时，你可以一次处理对象中任何值，内存中的只读数据是安全的。请记住，有些数据类型的赋值操作不仅仅需要一条指令，也就是说信号处理函数可能在赋值操作中间被运行。
 6. 当信号处理函数运行时，如果值的修改不会disturb任何事，内存中的只写数据也是安全的。
 ##线程安全和可重入的关系
-![一图胜前言](/public/upload/reentrant.jpg)
+![一图胜前言](/images/post/reentrant.jpg)
 
 ---------------
 *详细信息你看[这里](http://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html#index-reentrant-functions)*

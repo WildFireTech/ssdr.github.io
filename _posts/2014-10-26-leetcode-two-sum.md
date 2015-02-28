@@ -13,7 +13,7 @@ Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 
 ###最笨的方法
-```
+```c
 vector<int> twoSum(vector<int> &numbers, int target) {
     vector<int> ret(2, -1);
     for(int i=0;i<numbers.size();i++)
@@ -28,9 +28,9 @@ vector<int> twoSum(vector<int> &numbers, int target) {
 }
 ```
 很简单可惜不符合时间要求。。。   
-![Time Limit Exceeded](/public/upload/timeup.png)
+![Time Limit Exceeded](/images/post/timeup.png)
 ###一种高效的方法
-```
+```c
 vector<int> twoSum(vector<int> &numbers, int target) {
     map<int, int> m;
     vector<int> ret;
