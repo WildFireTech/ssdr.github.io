@@ -7,26 +7,27 @@ tags: [linux, performance, tools]
 ---
 
 ##分析工具集合
-strace
-netstat
-perf
-dtrace
-stap
-iotop
-blktrace
-top
-pidstat
-mpstat
-dstat
-vmstat
-ping
-tcpdump
-ip
-nicstat
-slabtop
-free
-sar
-/proc
+
+	strace
+	netstat
+	perf
+	dtrace
+	stap
+	iotop
+	blktrace
+	top
+	pidstat
+	mpstat
+	dstat
+	vmstat
+	ping
+	tcpdump
+	ip
+	nicstat
+	slabtop
+	free
+	sar
+	/proc
 
 ##基本工具
 - uptime: show load averages(1min, 5mins, 15mins), no more than cpu count
