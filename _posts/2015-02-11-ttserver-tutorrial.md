@@ -17,7 +17,9 @@ TT支持所有兼容Memcached和HTTP的协议，因此几乎所有的平台和�
 ##ttserver
 
 ```shell
+
 ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-kl] [-log path] [-ld|-le] [-ulog path] [-ulim num] [-uas] [-sid num] [-mhost name] [-mport num] [-rts path] [-rcc] [-skel name] [-mul num] [-ext path] [-extpc name period] [-mask expr] [-unmask expr] [dbname]
+
 ```
 
 发送SIGINT和SIGTERM信号（ctrl-c），正常停止程序；   
