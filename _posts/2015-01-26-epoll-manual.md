@@ -5,8 +5,11 @@ description: ""
 category: 用户手册 
 tags: [manual, epoll]
 ---
+
 #epoll - IO事件通知
+
 	#include <sys/epoll.h>
+
 ##描述
 epoll的API接口用于监听多个文件描述符上的IO事件。分为边缘触发和水平触发两种模式。以下	系统调用接口用于创建和管理epoll实例：
 
@@ -21,18 +24,22 @@ epoll的API接口用于监听多个文件描述符上的IO事件。分为边缘�
   第三个参数是需要监听的fd，   
   第四个参数是告诉内核需要监听什么事，struct epoll_event结构如下：
   
-		struct epoll_event {
-		  __uint32_t events; 
-		  epoll_data_t data; 
-		};
+{% highlight c %}
+
+struct epoll_event {
+  __uint32_t events; 
+  epoll_data_t data; 
+};
+
+typedef union epoll_data {
+  void *ptr;
+  int fd;
+  __uint32_t u32;
+  __uint64_t u64;
+} epoll_data_t;
 		
-		typedef union epoll_data {
-		  void *ptr;
-		  int fd;
-		  __uint32_t u32;
-		  __uint64_t u64;
-		} epoll_data_t;
-		
+{% endhighlight %}
+
 events可以是以下几个宏的集合：
 
 	EPOLLIN： 表示对应的文件描述符可以读（包括对端SOCKET正常关闭）；
@@ -79,54 +86,58 @@ events可以是以下几个宏的集合：
 ###使用示例
 在该例中，监听器为一个非阻塞socket（listen已调用）。do_use_fd使用新的就绪文件描述符，直到read或write返回EAGAIN。在获得EAGAIN以后，事件驱动的状态机应用应该记录当前状态，以便于在下次调用do_use_fd时继续读写操作。
 
-	#define MAX_EVENTS 10
-    struct epoll_event ev, events[MAX_EVENTS];
-    int listen_sock, conn_sock, nfds, epollfd;
+{% highlight c %}
 
-    /* Set up listening socket, 'listen_sock' (socket(),
-       bind(), listen()) */
+#define MAX_EVENTS 10
+struct epoll_event ev, events[MAX_EVENTS];
+int listen_sock, conn_sock, nfds, epollfd;
 
-    epollfd = epoll_create(10);
-    if (epollfd == -1) {
-        perror("epoll_create");
+/* Set up listening socket, 'listen_sock' (socket(),
+   bind(), listen()) */
+
+epollfd = epoll_create(10);
+if (epollfd == -1) {
+    perror("epoll_create");
+    exit(EXIT_FAILURE);
+}
+
+ev.events = EPOLLIN;
+ev.data.fd = listen_sock;
+if (epoll_ctl(epollfd, EPOLL_CTL_ADD, listen_sock, &ev) == -1) {
+    perror("epoll_ctl: listen_sock");
+    exit(EXIT_FAILURE);
+}
+
+for (;;) {
+    nfds = epoll_wait(epollfd, events, MAX_EVENTS, -1);
+    if (nfds == -1) {
+        perror("epoll_pwait");
         exit(EXIT_FAILURE);
     }
 
-    ev.events = EPOLLIN;
-    ev.data.fd = listen_sock;
-    if (epoll_ctl(epollfd, EPOLL_CTL_ADD, listen_sock, &ev) == -1) {
-        perror("epoll_ctl: listen_sock");
-        exit(EXIT_FAILURE);
-    }
-
-    for (;;) {
-        nfds = epoll_wait(epollfd, events, MAX_EVENTS, -1);
-        if (nfds == -1) {
-            perror("epoll_pwait");
-            exit(EXIT_FAILURE);
-        }
-
-        for (n = 0; n < nfds; ++n) {
-            if (events[n].data.fd == listen_sock) {
-                conn_sock = accept(listen_sock,
-                                (struct sockaddr *) &local, &addrlen);
-                if (conn_sock == -1) {
-                    perror("accept");
-                    exit(EXIT_FAILURE);
-                }
-                setnonblocking(conn_sock);
-                ev.events = EPOLLIN | EPOLLET;
-                ev.data.fd = conn_sock;
-                if (epoll_ctl(epollfd, EPOLL_CTL_ADD, conn_sock,
-                            &ev) == -1) {
-                    perror("epoll_ctl: conn_sock");
-                    exit(EXIT_FAILURE);
-                }
-            } else {
-                do_use_fd(events[n].data.fd);
+    for (n = 0; n < nfds; ++n) {
+        if (events[n].data.fd == listen_sock) {
+            conn_sock = accept(listen_sock,
+                            (struct sockaddr *) &local, &addrlen);
+            if (conn_sock == -1) {
+                perror("accept");
+                exit(EXIT_FAILURE);
             }
+            setnonblocking(conn_sock);
+            ev.events = EPOLLIN | EPOLLET;
+            ev.data.fd = conn_sock;
+            if (epoll_ctl(epollfd, EPOLL_CTL_ADD, conn_sock,
+                        &ev) == -1) {
+                perror("epoll_ctl: conn_sock");
+                exit(EXIT_FAILURE);
+            }
+        } else {
+            do_use_fd(events[n].data.fd);
         }
     }
+}
+
+{% endhighlight %}
 
 ##QA
 

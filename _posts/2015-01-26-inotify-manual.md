@@ -23,14 +23,19 @@ inotify API提供了一种监控文件系统事件的机制。它可以用于监
 
 每次`read`成功返回包含一个或多个一下结构的缓冲区：
 
-	 struct inotify_event {
-          int      wd;       /* Watch descriptor */
-          uint32_t mask;     /* Mask of events */
-          uint32_t cookie;   /* Unique cookie associating related
-                                events (for rename(2)) */
-          uint32_t len;      /* Size of name field */
-          char     name[];   /* Optional null-terminated name */
-     };
+{% highlight c %}
+
+struct inotify_event {
+     int      wd;       /* Watch descriptor */
+     uint32_t mask;     /* Mask of events */
+     uint32_t cookie;   /* Unique cookie associating related
+   						events (for rename(2)) */
+     uint32_t len;      /* Size of name field */
+     char     name[];   /* Optional null-terminated name */
+};
+
+{% endhighlight %}
+
 wd为监听描述符；
 
 mask表示监听的事件；
