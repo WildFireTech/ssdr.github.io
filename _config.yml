@@ -8,5 +8,3 @@ timezone:         Asia/Shanghai
 gems:
   - jemoji
   - jekyll-mentions
-
-assets_path: /assets
