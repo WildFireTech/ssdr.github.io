@@ -47,6 +47,7 @@ ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-
 #Tutorial
 
 ##基本用法
+
 	ttserver
 
 默认用法，端口1978，内存hash数据库，用于保存cache数据。
@@ -159,8 +160,8 @@ ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-
 2，启动slave
 
 	mkdir ulog-2
-	ttserver -port 1979 -ulog ulog-2 -sid 2 \
-                -mhost localhost -mport 1978 -rts 2.rts casket-2.tch
+	ttserver -port 1979 -ulog ulog-2 -sid 2 
+             -mhost localhost -mport 1978 -rts 2.rts casket-2.tch
 
 3，向master存数据
 
@@ -184,8 +185,8 @@ ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-
 7，添加新的从（端口1980）
 
 	mkdir ulog-3.tch
-	ttserver -port 1980 -ulog ulog-3 -sid 3 \
-                -mhost localhost -mport 1979 -rts 3.rts casket-3.tch
+	ttserver -port 1980 -ulog ulog-3 -sid 3
+             -mhost localhost -mport 1979 -rts 3.rts casket-3.tch
 
 8，检查新主新从的一致性
 
@@ -197,11 +198,15 @@ ttserver [-host name] [-port num] [-thnum num] [-tout num] [-dmn] [-pid path] [-
 ##设置复制
 不宕机设置数据库的复制，首先，准备下面的脚本用于备份操作，保存为"ttbackup.sh"，设置可执行权限。
 
-	#! /bin/sh
-	srcpath="$1"
-	destpath="$1.$2"
-	rm -f "$destpath"
-	cp -f "$srcpath" "$destpath"
+{% highlight c %}
+
+#!/bin/sh
+srcpath="$1"
+destpath="$1.$2"
+rm -f "$destpath"
+cp -f "$srcpath" "$destpath"
+
+{% endhighlight %}
 
 然后，启动master，开启ulog
 
