@@ -65,4 +65,20 @@ This is where Damian writes his stuff and messes around every once in a while.
 └── 404.html # Custom 404 page
 └── sitemap.xml # Site map for the website
 ```
+### Front Matters
+```
+---
+layout:
+title:
+subtitle:
+date:
+author:
+categories:
+tags:
+image:
+excerpt:
+---
+```
+### Post
+文件名命名格式`YYY-MM-DD-blog-post-title.md`.
 

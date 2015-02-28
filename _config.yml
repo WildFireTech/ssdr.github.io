@@ -1,6 +1,6 @@
 title:            "@ssdr"
 url:              http://ssdr.github.io
-permalink:        pretty
+permalink:        /:year/:month/:title/
 
 highlighter:      pygments
 
