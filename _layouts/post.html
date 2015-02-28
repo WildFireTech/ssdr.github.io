@@ -33,8 +33,11 @@
               {% endif %}
             </header>
             {{ content }}
-
-			<!-- 在文章底部放置左右翻页 -->
+          </article>
+        </div>
+      </section>
+		
+	  		<!-- 在文章底部放置左右翻页 -->
 			<div class="pagination">
 			  {% if page.previous %}
 				<a class="page-nav previous" {% if page.previous %}href="{{ page.previous.url }}" id="js-previous-post"{% endif %}>
@@ -48,9 +51,6 @@
 			  {% endif %}
 			</div>
 
-          </article>
-        </div>
-      </section>
 
 <!-- 多说评论框 start -->
 <div class="ds-thread" {% if page.id %}data-thread-key="{{ page.id }}"{% endif %} data-title="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}"></div>
