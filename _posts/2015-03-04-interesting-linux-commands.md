@@ -1,7 +1,9 @@
 ---
 layout: post
-title: 一些有意思的Linux命令
+title: 一些有意思的Linux命令（未完待续）
 ---
+
+> 本文提到的命令来自[commandlinefu.com](http://www.commandlinefu.com/commands/browse/sort-by-votes)。
 
 ###sudo !!
 以root用户的身份执行上一次的指令
