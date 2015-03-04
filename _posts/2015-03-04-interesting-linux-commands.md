@@ -9,8 +9,10 @@ title: 一些有意思的Linux命令
 ###python -m SimpleHTTPServer
 将当前目录结构用于web服务，http://$HOSTNAME:8000/
 
-###^foo^bar
+###see below
 执行上一个命令，并替换，可用于修正上次输入的命令
+
+	^foo^bar
 
 ###!!:gs/foo/bar
 同上一命令
@@ -18,10 +20,10 @@ title: 一些有意思的Linux命令
 ###man ascii
 快速查看ascii码表
 
-###<ctrl+u> [...] <ctrl+y> - 这个命令很好用
+###(ctrl+u) [...] (ctrl+y) - 这个命令很好用
 输入某个命令，关闭该命令，去查看你忘记的部分，恢复关闭的命令，继续输入
 
-###<ctrl+l>
+###(ctrl+l)
 清屏，同clear命令
 
 ###(cd /tmp && ls)
@@ -48,7 +50,7 @@ title: 一些有意思的Linux命令
 ###!*
 重用上一次命令的所有参数，`ESC+.`为上次命令的最后一个参数
 
-###nc -v -l 80 < file.ext
+###nc -v -l 80 < file.txt
 通过http协议80端口共享文件
 
 ###mv filename.{old, new}
