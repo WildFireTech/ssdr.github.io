@@ -20,10 +20,10 @@ title: 一些有意思的Linux命令
 ###man ascii
 快速查看ascii码表
 
-###(ctrl+u) 查看备忘 (ctrl+y) - 这个命令很好用
+###ctrl+u 查看备忘 ctrl+y - 这个命令很好用
 输入某个命令，关闭该命令，去查看你忘记的部分，恢复关闭的命令，继续输入
 
-###(ctrl+l)
+###ctrl+l
 清屏，同clear命令
 
 ###(cd /tmp && ls)
