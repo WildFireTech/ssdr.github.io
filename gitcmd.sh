@@ -6,6 +6,4 @@ then
 	exit 1;
 fi
 
-echo $*
-
 git add .; git commit -m "$*"; git push
