@@ -81,4 +81,4 @@ socket统计
 以树形显示进程列表
 
 ---
-本文提到的命令基本来自 [commandlinefu.com](http://www.commandlinefu.com/commands/browse/sort-by-votes)。
+本文提到的命令大部分来自 [commandlinefu.com](http://www.commandlinefu.com/commands/browse/sort-by-votes)。
