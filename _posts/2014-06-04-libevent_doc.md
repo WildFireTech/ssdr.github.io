@@ -30,4 +30,5 @@ libevent提供了一个非常简单的事件驱动HTTP服务器，可以很容�
 ## RPC框架
 libevent提供了一个用于创建客户端服务器RPC的框架。
 
+---
 *本文翻译自：[libevent Documentation](http://www.monkey.org/~provos/libevent/doxygen-2.0.1/index.html)*
