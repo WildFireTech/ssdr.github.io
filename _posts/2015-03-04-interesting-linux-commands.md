@@ -2,9 +2,7 @@
 layout: post
 title: 一些有意思的Linux命令（未完待续）
 ---
-
-> 本文提到的命令来自[commandlinefu.com](http://www.commandlinefu.com/commands/browse/sort-by-votes)。
-
+	
 ###sudo !!
 以root用户的身份执行上一次的指令
 
@@ -56,4 +54,31 @@ title: 一些有意思的Linux命令（未完待续）
 通过http协议80端口共享文件
 
 ###mv filename.{old, new}
-快速重命名文件，old->new
+快速重命名文件，old->new 
+
+###mtr baidu.com
+网络分析工具，`mtr=ping+traceroute`
+
+###nl readme.txt
+为文件标注行号
+
+###shuf
+生成随机组合
+
+###ss
+socket统计
+
+###last
+显示登陆用户列表
+
+###curl ifconfig.me
+获取外部ip地址
+
+###tree
+以树形显示目录内容
+
+###pstree
+以树形显示进程列表
+
+---
+本文提到的命令基本来自 [commandlinefu.com](http://www.commandlinefu.com/commands/browse/sort-by-votes)。
