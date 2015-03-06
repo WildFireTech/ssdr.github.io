@@ -48,5 +48,6 @@ tags: linux
 
 	"寻找乐趣，做一些有趣的事情，增加财富和提高名声。" 
 	
-------------
+---
+
 *本文摘录自：[阮一峰的网络日志](http://www.ruanyifeng.com/blog/2012/09/linus_torvalds.html "《Linus Torvalds自传》摘录")*
