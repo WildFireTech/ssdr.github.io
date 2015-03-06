@@ -186,5 +186,5 @@ MySQL相关参数
 第二条命令执行测试，包含16个客户线程，发起100000请求。
 
 
--------------------
+---
 *本文翻译自：[SysBench Manual](http://sysbench.sourceforge.net/docs/)*
