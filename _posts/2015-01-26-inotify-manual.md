@@ -100,4 +100,5 @@ inotify API通过文件名表示文件，但当应用经常处理事件时，文
 
 如果在监听整个目录树，并在目录中创建了一个子目录，请记住，当你为子目录创建监听的时候，子目录中可能已经创建了新文件（该文件不会触发事件发生）。因此，在添加监听后，你需要立即扫描子目录的内容。
 
+---
 *详细信息请看：[inotify manual](http://manpages.debian.org/cgi-bin/man.cgi?query=inotify&apropos=0&sektion=0&manpath=Debian+7.0+wheezy&format=html&locale=en)*
