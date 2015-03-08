@@ -64,5 +64,6 @@ Note：看一下程序代码里有没有调用close(socket)。如果在发送数
 ##总结
 TCP重置是个好东西。如果没有它们，当TCP遇到网络连接问题时，会出现大量问题。请记住，连接重置可能发生自网络栈和应用程序。仅仅因为存在重传数据包并不能推断连接会自动重置。重要的是，确定数据帧并理解发送重传的原因。
 
+---
 *详情请看这里：[Where do resets come from?](http://blogs.technet.com/b/networking/archive/2009/08/12/where-do-resets-come-from-no-the-stork-does-not-bring-them.aspx)*
 
