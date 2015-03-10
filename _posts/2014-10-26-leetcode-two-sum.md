@@ -47,3 +47,6 @@ vector<int> twoSum(vector<int> &numbers, int target) {
 }
 ```
 通过一个map结构暂存第一个元素的位置，便于找到第二个元素时得到两个位置。
+
+---
+*详见[这里](https://leetcode.com/submissions/detail/20425200/)*
