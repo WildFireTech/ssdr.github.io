@@ -1,3 +1,7 @@
+---
+layout: post
+title: cplusplus.com系列之C++11新特性：可变参数模板
+
 ##介绍
 在C++11之前，当实现函数对象（functor）和tuple，使用模板有诸多限制。使用早期标准实现这些东西除了需要预处理元编程（preprocessor metaprogramming）以外，还需要多次重复类似的代码。而有了可变参数模板（variadic templates），使用模板更容易，更清晰，也更节省内存。
 
