@@ -18,6 +18,7 @@
                   {{ page.date | date_to_string }} -
                   by <a href="https://github.com/ssdr" target="_blank">@ssdr</a>
                 </small>
+                <!-- 在文章顶部放置左右翻页 -->
                 <div class="pagination">
                   {% if page.previous %}
                     <a class="page-nav previous" {% if page.previous %}href="{{ page.previous.url }}" id="js-previous-post"{% endif %}>
@@ -37,25 +38,25 @@
         </div>
       </section>
 		
-	  		<!-- 在文章底部放置左右翻页 -->
-			<div class="pagination">
-			  {% if page.previous %}
-				<a class="page-nav previous" {% if page.previous %}href="{{ page.previous.url }}" id="js-previous-post"{% endif %}>
-				  &lt;
-				</a>
-			  {% endif %}
-			  {% if page.next %}
-				<a class="page-nav next" {% if page.next %}href="{{ page.next.url }}" id="js-next-post"{% endif %}>
-				  &gt;
-				</a>
-			  {% endif %}
-			</div>
+  	<!-- 在文章底部放置左右翻页 -->
+	<div class="pagination">
+	  {% if page.previous %}
+		<a class="page-nav previous" {% if page.previous %}href="{{ page.previous.url }}" id="js-previous-post"{% endif %}>
+		  &lt;
+		</a>
+	  {% endif %}
+	  {% if page.next %}
+		<a class="page-nav next" {% if page.next %}href="{{ page.next.url }}" id="js-next-post"{% endif %}>
+		  &gt;
+		</a>
+	  {% endif %}
+	</div>
 
 <!-- 多说分享 start -->
 <div class="ds-share" data-thread-key="{{ page.id }}" data-title="{{ page.title }} - {{ site.title }}" 
 	data-images="http://ssdr.github.io/images/og.png" data-content="{{ page.content }}" data-url="{{ site.url }}{{ page.url }}">
     <div class="ds-share-inline">
-      <ul  class="ds-share-icons-">
+      <ul  class="ds-share-icons-32">
       	
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
         <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
