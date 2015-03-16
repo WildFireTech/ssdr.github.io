@@ -1,7 +1,10 @@
 ---
 layout: post
-title: Leetcode 7 - Reverse Integer
+title: Leetcode 7&8 - Reverse Integer & Palindrome Number
 ---
+
+### Reverse Ingeger
+
 
 > Reverse digits of an integer.
 
@@ -35,5 +38,29 @@ title: Leetcode 7 - Reverse Integer
     
 ```
 
+### Palindrome Number
+
+> Determine whether an integer is a palindrome. Do this without extra space.
+
+```C++
+
+	bool isPalindrome(int x) {
+        // 反转后如果相等说明是回文
+        if(x<0) return false;
+        long xx=x, res=0;
+        while(xx) {
+            res = res*10 + xx%10;
+            xx /= 10;
+        }
+        if(res == long(x)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+```
+
 ---
 *详见[这里](https://leetcode.com/submissions/detail/23188556/)*
+*还有[这里](https://leetcode.com/submissions/detail/23190352/)*
