@@ -1,7 +1,7 @@
 
 ---
 layout: post
-title: "Nginx proxy_pass指令中的/"
+title: 一点proxy_pass的注意事项
 ---
 
 以下配置摘自nginx.conf 里的server 段：
