@@ -1,7 +1,6 @@
-
 ---
 layout: post
-title: time_wait和close_wait
+title: "time_wait和close_wait"
 ---
 
 ###TCP的11个状态
