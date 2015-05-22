@@ -19,7 +19,7 @@ title: gtest首次实践
 	cmake $GTEST_DIR
 	make
 	
-完成异常操作后将在当前目录下生产`libgtest.a`和`libgtest_main_a`两个静态库文件。
+完成以上操作后将在当前目录下生产`libgtest.a`和`libgtest_main_a`两个静态库文件。
 
 ###使用gtest
 ####编写待测试代码
