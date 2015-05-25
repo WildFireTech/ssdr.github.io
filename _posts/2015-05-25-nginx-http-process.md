@@ -35,7 +35,35 @@ ngx_http_read_discarded_request_body()
 ngx_http_discarded_request_body_handler()
 
 ##发送http响应
+ngx_http_send_header(): ngx_http_header_filter()
+ngx_http_output_filter()
+ngx_http_writer()
 
+##结束http请求
+ngx_http_close_connection()
+
+关闭tcp连接。
+
+ngx_http_free_request()
+
+释放请求对应的ngx_http_request_t结构体。
+
+ngx_http_close_request()
+
+关闭请求。引用计数减一。只有引用计数为0时才会释放请求。
+
+ngx_http_finalize_connection()
+
+解决keepalive和子请求的问题
+
+
+ngx_http_terminate_request()
+
+强制结束请求，用于非正常结束场景。引用计数强行置一，然后close。
+
+ngx_http_finalize_request()
+
+最常用的http模块结束请求的方法。
 
 
 ---
