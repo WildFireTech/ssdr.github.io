@@ -54,7 +54,7 @@ ngx_http_close_request()
 
 ngx_http_finalize_connection()
 
-解决keepalive和子请求的问题
+检查引用计数，并解决keepalive和子请求的问题
 
 
 ngx_http_terminate_request()
