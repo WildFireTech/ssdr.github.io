@@ -7,7 +7,7 @@ layout: about
 
 互联网上的小菜鸟，现在北京。
 
-> If Everything seems under control, you are not going fast enough.
+> If everything seems under control, you are not going fast enough.
 
 ---
 
