@@ -7,13 +7,13 @@ title: NC文件传输
 
 假设从机器A往机器B传输文件file.txt。
 
-1. 机器B端
+### 机器B端
 
     nc -l 3140 > /tmp/file.txt
 
 3140为监听的端口，/tmp/file.txt为存储的文件路径。
 
-2. 机器A端
+### 机器A端
 
     nc ip_B port_B < file.txt
 
