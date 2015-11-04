@@ -30,10 +30,17 @@ tags: nginx
     └── os          主要是对各种不同体系统结构所提供的系统函数的封装，对外提供统一的系统调用接口
 ```
 ###auto
-`auto/options`的目的主要是处理用户选项，并由选项生成一些全局变量的值，这些值在其它文件中会用到。该文件也会输出configure的帮助信息。
-`auto/init`该文件的目的在于初始化一些临时文件的路径，检查echo的兼容性，并创建Makefile。
-`auto/sources`该文件的主要作用是定义不同功能或系统所需要的文件的变量。根据功能，分为CORE/REGEX/EVENT/UNIX/FREEBSD/HTTP等。
-每一个功能将会由四个变量组成，`_MODULES`表示此功能相关的模块，最终会输出到`ngx_modules.c`文件中，即动态生成需要编译到nginx中的模块；`INCS`表示此功能依赖的源码目录，查找头文件的时候会用到，在编译选项中，会出现在'-I'中；`DEPS`显示指明在Makefile中需要依赖的文件名，即编译时，需要检查这些文件的更新时间；`SRCS`表示需要此功能编译需要的源文件。
+`auto/options`的目的主要是处理用户选项，并由选项生成一些全局变量的值，这些值在其它文件中会用到。该文件也会输出configure的帮助信息。   
+
+`auto/init`该文件的目的在于初始化一些临时文件的路径，检查echo的兼容性，并创建Makefile。   
+
+`auto/sources`该文件的主要作用是定义不同功能或系统所需要的文件的变量。根据功能，分为CORE/REGEX/EVENT/UNIX/FREEBSD/HTTP等。   
+
+每一个功能将会由四个变量组成   
+`_MODULES`表示此功能相关的模块，最终会输出到`ngx_modules.c`文件中，即动态生成需要编译到nginx中的模块；   
+`INCS`表示此功能依赖的源码目录，查找头文件的时候会用到，在编译选项中，会出现在'-I'中；   
+`DEPS`显示指明在Makefile中需要依赖的文件名，即编译时，需要检查这些文件的更新时间；   
+`SRCS`表示需要此功能编译需要的源文件。
 
 ##nginx的命令行控制
 ###启动时另行指定配置文件
@@ -64,8 +71,8 @@ tags: nginx
 ###优雅停止worker进程
     kill -s SIGWINCH worker-pid
 
-快速与优雅的区别：
-快速：worker进程和master进程在收到信号后会立即跳出循环，退出进程；
+快速与优雅的区别：   
+快速：worker进程和master进程在收到信号后会立即跳出循环，退出进程；   
 优雅：先关闭监听端口，停止接收新的连接，然后把当前正在处理的连接全部处理完，最后在退出进程。
 
 ###使运行中的nginx重读配置项并生效
@@ -74,11 +81,13 @@ tags: nginx
 
 ###日志文件回滚
 先重命名或转移日志文件，然后-s reopen日志将打入新的日志文件
+
     ./nginx -s reopen
     等同于kill -s SIGUSR1 master-pid
 
 ###平滑升级nginx
 新版本替换旧版本二进制文件
+
     kill -s SIGUSR2 master-pid-old #新旧版本同时运行
     kill -s SIGQUIT master-pid-old #优雅关闭旧版本
 
@@ -91,7 +100,8 @@ tags: nginx
                '"$request" $status $body_bytes_sent '
                '"$http_referer" "$http_user_agent"';
 
-日志通过^A分割
+日志通过\^A分割
+
     log_format abc "$remote_addr^A$remote_user^A$time_local^A$request_method^A$uri^A$args^A$server_protocol"
             "^A$status^A$body_bytes_sent^A$http_referer"
             "^A$http_user_agent";
@@ -99,6 +109,7 @@ tags: nginx
 `ngx_errlog_module`为其他模块提供基本的记录日志功能。
 
 ##ngx_module_t内容
+
 ```
 ngx_module_t *ngx_modules[] = {
     // 全局core模块
