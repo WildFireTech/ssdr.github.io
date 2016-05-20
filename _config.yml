@@ -2,7 +2,8 @@ title:            "@ssdr"
 url:              http://ssdr.github.io
 permalink:        /:year/:month/:title/
 
-highlighter:      pygments
+#highlighter:      pygments
+highlighter:      rouge
 
 #markdown:         kramdown
 #kramdown:
