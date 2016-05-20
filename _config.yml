@@ -3,7 +3,7 @@ url:              http://ssdr.github.io
 permalink:        /:year/:month/:title/
 
 #highlighter:      pygments
-highlighter:      rouge
+highlighter:      pretty
 
 #markdown:         kramdown
 #kramdown:
