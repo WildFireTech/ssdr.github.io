@@ -1,8 +1,10 @@
+name:             ssdr
+description:      Damian's blog space
 title:            "@ssdr"
 url:              https://ssdr.github.io
 permalink:        /:year/:month/:title/
 
-highlighter:      pygments
+highlighter:      rouge
 
 markdown:         kramdown
 kramdown:
